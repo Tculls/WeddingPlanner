@@ -33,4 +33,8 @@ public class User
 
     public DateTime CreatedAt {get; set; } = DateTime.Now;
     public DateTime UpdatedAt {get; set; } = DateTime.Now;
+
+    List<Wedding> Weddings {get; set; } = new List<Wedding>();
+
+    public List<Association> Associations {get; set; } = new List<Association>();
 }

@@ -30,4 +30,8 @@ public class Wedding
     [Display(Name = "Wedding Address")]
 
     public string WeddingAddress {get; set; }
+
+    public List<User> Guest {get; set; } = new List<User>();
+
+    public List<Association> Associations {get; set; } = new List<Association>();
 }

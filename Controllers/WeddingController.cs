@@ -68,7 +68,7 @@ public class WeddingController : Controller
             return RedirectToAction("Index", "Home");
         }
 
-        List<Wedding> AllWeddings = _context.Weddings.Include(w => w.Planner).ToList();
+        List<Wedding> AllWeddings = _context.Weddings.Include(w => w.Planner).Include(wed => wed.Attendees).ToList();
 
         return View("Dashboard", AllWeddings);
     }

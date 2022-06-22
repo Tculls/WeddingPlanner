@@ -1,5 +1,9 @@
 @model List<Wedding>
-<form asp-controller="User" asp-action="Logout" method="post"><button>Log Out</button></form>
+<form 
+asp-controller="User" 
+asp-action="Logout" 
+method="post"><button>Log Out</button>
+</form>
 <div>
     <h1>Welcome to the Wedding Planner</h1>
 
@@ -30,7 +34,7 @@
                     asp-controller="Wedding" 
                     asp-action="GoToWedding"
                     asp-route-WeddingId="@wed.WeddingId" 
-                    method="POST">
+                    method="post">
                     <button>
                         @if(Attending)
                         {

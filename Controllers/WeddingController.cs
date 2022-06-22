@@ -2,7 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using WeddingPlanner.Models;
 using Microsoft.EntityFrameworkCore;
-using  
+
 
 namespace WeddingPlanner.Controllers;
 

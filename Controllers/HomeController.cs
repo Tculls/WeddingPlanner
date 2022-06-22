@@ -16,7 +16,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View("LoginRegistration");
+        return View("LoginRegister", "User");
     }
 
     [HttpPost("/register")]
@@ -28,7 +28,7 @@ public class HomeController : Controller
         }
         if (_context.Users.Any(User => User.Email == newUser.Email))
         {
-            ModelState.AddModelError("Email", "is already in use")
+            ModelState.AddModelError("Email", "is already in use");
             return Index();
         }
 
@@ -40,7 +40,7 @@ public class HomeController : Controller
 
         HttpContext.Session.SetInt32("UserId", newUser.UserId);
 
-        return RedirectToAction("Success");
+        return RedirectToAction("Dashboard", "Wedding");
     }
     public IActionResult Privacy()
     {

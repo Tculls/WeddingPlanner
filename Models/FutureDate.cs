@@ -5,7 +5,7 @@ public class FutureDate : ValidationAttribute
     protected override ValidationResult IsValid(object value, ValidationContext context)
     {
         DateTime weddingDate = Convert.ToDateTime(value);
-        if (weddingDate.AddDays(1) > DateTime.Now)
+        if (weddingDate.Date > DateTime.Now)
         {
             return ValidationResult.Success;
         }

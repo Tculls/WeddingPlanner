@@ -31,6 +31,9 @@ public class Wedding
 
     public string WeddingAddress {get; set; }
 
+    public int UserId {get; set; }
+    public User? Planner {get; set; }
+
     public List<User> Guest {get; set; } = new List<User>();
 
     public List<Association> Associations {get; set; } = new List<Association>();

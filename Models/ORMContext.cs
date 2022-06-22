@@ -6,4 +6,6 @@ public class ORMContext : DbContext
 {
     public ORMContext(DbContextOptions options) : base(options){  }
 
+    public DbSet<Wedding> Weddings {get; set; }
+    public DbSet<User> Users {get; set; }
 }

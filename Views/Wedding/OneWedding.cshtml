@@ -1,6 +1,6 @@
 @model Wedding
-<a>Dashboard</a>
-<a>Log Out</a>
+<a href ="/weddings">Dashboard</a>
+<form asp-controller="User" asp-action="Logout" method="post"><button>Log Out</button></form>
 <div>
     <h1>Peoples wedding goes here</h1>
     <h3>Wedding date goes here</h3>

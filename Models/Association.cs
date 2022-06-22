@@ -12,5 +12,5 @@ public class Association
 
     public Wedding? Wedding {get; set; }
 
-    public User? User {get; set; }
+    public User? Attendee {get; set; }
 }

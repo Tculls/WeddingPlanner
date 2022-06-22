@@ -1,5 +1,5 @@
 @model List<Wedding>
-<a >Log Out</a>
+<form asp-controller="User" asp-action="Logout" method="post"><button>Log Out</button></form>
 <div>
     <h1>Welcome to the Wedding Planner</h1>
 
@@ -17,5 +17,5 @@
         </tbody>
     </table>
 
-    <a>New Wedding</a>
+    <a asp-controller="Wedding" asp-action="New">New Wedding</a>
 </div>

@@ -37,7 +37,7 @@ namespace WeddingPlanner.Migrations
 
                     b.HasIndex("WeddingId");
 
-                    b.ToTable("Association");
+                    b.ToTable("Associations");
                 });
 
             modelBuilder.Entity("User", b =>
@@ -68,12 +68,7 @@ namespace WeddingPlanner.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<int?>("WeddingId")
-                        .HasColumnType("int");
-
                     b.HasKey("UserId");
-
-                    b.HasIndex("WeddingId");
 
                     b.ToTable("Users");
                 });
@@ -111,28 +106,21 @@ namespace WeddingPlanner.Migrations
 
             modelBuilder.Entity("Association", b =>
                 {
-                    b.HasOne("User", "User")
+                    b.HasOne("User", "Attendee")
                         .WithMany("Associations")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Wedding", "Wedding")
-                        .WithMany("Associations")
+                        .WithMany("Attendees")
                         .HasForeignKey("WeddingId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("User");
+                    b.Navigation("Attendee");
 
                     b.Navigation("Wedding");
-                });
-
-            modelBuilder.Entity("User", b =>
-                {
-                    b.HasOne("Wedding", null)
-                        .WithMany("Guest")
-                        .HasForeignKey("WeddingId");
                 });
 
             modelBuilder.Entity("Wedding", b =>
@@ -153,9 +141,7 @@ namespace WeddingPlanner.Migrations
 
             modelBuilder.Entity("Wedding", b =>
                 {
-                    b.Navigation("Associations");
-
-                    b.Navigation("Guest");
+                    b.Navigation("Attendees");
                 });
 #pragma warning restore 612, 618
         }

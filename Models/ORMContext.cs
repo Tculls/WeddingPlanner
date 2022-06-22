@@ -8,4 +8,6 @@ public class ORMContext : DbContext
 
     public DbSet<Wedding> Weddings {get; set; }
     public DbSet<User> Users {get; set; }
+
+    public DbSet<Association> Associations {get; set; }
 }

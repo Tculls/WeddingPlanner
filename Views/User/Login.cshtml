@@ -1,16 +1,16 @@
 @model LoginUser
 <h3>Login</h3>
 <div>
-<form asp-controller="Users" asp-action="Login" method="POST">
+<form asp-controller="User" asp-action="Login" method="POST">
     <div>
-        <label asp-for="Email"></label>
-        <span asp-validation-for="Email"></span>
-        <input asp-for="Email"/>
+        <label asp-for="LoginEmail"></label>
+        <span asp-validation-for="LoginEmail"></span>
+        <input asp-for="LoginEmail"/>
     </div>
     <div>
-        <label asp-for="Password"></label>
-        <span asp-validation-for="Password"></span>
-        <input asp-for="Password"/>
+        <label asp-for="LoginPassword"></label>
+        <span asp-validation-for="LoginPassword"></span>
+        <input asp-for="LoginPassword"/>
     </div>
 
     <input type="Submit" value="Log in!">

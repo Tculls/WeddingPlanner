@@ -19,29 +19,7 @@ public class HomeController : Controller
         return View("LoginRegister", "User");
     }
 
-    [HttpPost("/register")]
-    public IActionResult Register(User newUser)
-    {
-        if (ModelState.IsValid == false)
-        {
-            return Index();
-        }
-        if (_context.Users.Any(User => User.Email == newUser.Email))
-        {
-            ModelState.AddModelError("Email", "is already in use");
-            return Index();
-        }
-
-        PasswordHasher<User> hashedPW = new PasswordHasher<User>();
-        newUser.Password = hashedPW.HashPassword(newUser, newUser.Password);
-        
-        _context.Users.Add(newUser);
-        _context.SaveChanges();
-
-        HttpContext.Session.SetInt32("UserId", newUser.UserId);
-
-        return RedirectToAction("Dashboard", "Wedding");
-    }
+    
     public IActionResult Privacy()
     {
         return View();

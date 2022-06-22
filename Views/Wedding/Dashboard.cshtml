@@ -15,10 +15,13 @@
         <tbody>
             @foreach (Wedding wed in Model)
             {
-                bool alreadyAttending = wed.Attendees.Any(guest => guest.UserId == Context.Session.GetInt32("UserId"));
+                bool Attending = wed.Attendees.Any(attendee => attendee.UserId == Context.Session.GetInt32("UserId"));
 
                 <tr>
-                    <td><a asp-controller="Wedding" asp-action="OneWedding" asp-route-WeddingId="@wed.WeddingId">@wed.WedderOne & @wed.WedderTwo</a></td>
+                    <td><a 
+                    asp-controller="Wedding"
+                    asp-action="OneWedding" 
+                    asp-route-WeddingId="@wed.WeddingId">@wed.WedderOne & @wed.WedderTwo</a></td>
                 
                 <td>@wed.WeddingDate.ToString("MMMM dd yyyy")</td>
                 <td>@wed.Attendees.Count</td>
@@ -27,15 +30,15 @@
                     asp-controller="Wedding" 
                     asp-action="GoToWedding"
                     asp-route-WeddingId="@wed.WeddingId" 
-                    method="Post">
+                    method="POST">
                     <button>
-                        @if(alreadyAttending)
+                        @if(Attending)
                         {
-                            <span>Not Going</span>
+                            <p>Not Going</p>
                         }
                         else
                         {
-                            <span>Going!</span>
+                            <p>Going!</p>
                         }
                     </button>
                     </form>
@@ -46,5 +49,7 @@
         </tbody>
     </table>
 
-    <a asp-controller="Wedding" asp-action="New">New Wedding</a>
+    <a 
+    asp-controller="Wedding" 
+    asp-action="New">New Wedding</a>
 </div>

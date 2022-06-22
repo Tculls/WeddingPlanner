@@ -2,8 +2,15 @@
 <a href ="/weddings">Dashboard</a>
 <form asp-controller="User" asp-action="Logout" method="post"><button>Log Out</button></form>
 <div>
-    <h1>Peoples wedding goes here</h1>
-    <h3>Wedding date goes here</h3>
+    <h1>@Model.WedderOne & @Model.WedderTwo</h1>
+    <h3>@Model.WeddingDate.ToString("MMMM dd, yy")</h3>
     <h5>Guests:</h5>
-    <li>List of guests go here</li>
+    <div>
+        @foreach (Association u in Model.Attendees)
+        {
+            <li>@u.Attendee.FirstName @u.Attendee.LastName</li>
+        }
+    
+    </div>
+    
 </div>

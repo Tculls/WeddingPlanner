@@ -8,11 +8,40 @@
             <tr>
                 <th>Wedding Duo</th>
                 <th>Date</th>
-                <th>Guest</th>
+                <th>Guest Count</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
+            @foreach (Wedding wed in Model)
+            {
+                bool alreadyAttending = wed.Attendees.Any(guest => guest.UserId == Context.Session.GetInt32("UserId"));
+
+                <tr>
+                    <td><a asp-controller="Wedding" asp-action="OneWedding" asp-route-WeddingId="@wed.WeddingId">@wed.WedderOne & @wed.WedderTwo</a></td>
+                
+                <td>@wed.WeddingDate.ToString("MMMM dd yyyy")</td>
+                <td>@wed.Attendees.Count</td>
+                <td>
+                    <form 
+                    asp-controller="Wedding" 
+                    asp-action="GoToWedding"
+                    asp-route-WeddingId="@wed.WeddingId" 
+                    method="Post">
+                    <button>
+                        @if(alreadyAttending)
+                        {
+                            <span>Not Going</span>
+                        }
+                        else
+                        {
+                            <span>Going!</span>
+                        }
+                    </button>
+                    </form>
+                </td>
+                </tr>
+            }
 
         </tbody>
     </table>

@@ -58,7 +58,7 @@ public class WeddingController : Controller
         _context.Weddings.Add(newWedding);
         _context.SaveChanges();
 
-        return RedirectToAction("Dashboard");
+        return RedirectToAction("AllWeddings");
     }
     [HttpGet("/weddings")]
     public IActionResult AllWeddings()
@@ -113,7 +113,7 @@ public class WeddingController : Controller
             _context.Associations.Remove(RSVPcheck);
         }
         _context.SaveChanges();
-        return RedirectToAction("Dashboard", "Wedding");
+        return RedirectToAction("AllWeddings");
     }
 }
 
